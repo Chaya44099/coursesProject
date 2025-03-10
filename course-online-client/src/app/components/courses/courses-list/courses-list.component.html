@@ -1,0 +1,51 @@
+<div class="course-container">
+    <div class="button-row">
+        <button mat-raised-button color="primary" routerLink="/">Go Home</button>
+        <button mat-raised-button color="primary" >Users</button>
+    </div>
+
+    <div class="button-row">
+        <button mat-raised-button color="primary" (click)="loadCourses()">Get Courses</button>
+        @if(userRole === 'teacher') {
+        <button mat-raised-button color="primary" routerLink="/courses/add">Add Course</button>
+        }
+
+    </div>
+    @if (isLoading) {
+    <div class="loading-container">
+        <mat-spinner diameter="50"></mat-spinner>
+    </div>
+    }
+    <h1>רשימת השיעורים</h1>
+    <div class="course-list">
+        @for (course of courses; track course.id) {
+        <mat-card class="course-card" >
+            <div class="course-card-content">
+                <div class="course-title">{{ course.title }}</div>
+                <div class="course-actions">
+                    @if (userRole === 'student') {
+                    @if (!isEnrolled(course.id)) {
+                    <button mat-raised-button color="accent" class="join-button"
+                        (click)="joinCourse(course.id, $event)">Join</button>
+                    } @else {
+                    <button mat-raised-button color="warn" class="leave-button"
+                        (click)="leaveCourse(course.id, $event)">Leave</button>
+                    }
+                    }
+
+                    @if (userRole === 'teacher') {
+                     
+                    <button mat-raised-button color="primary" class="update-button"
+                        (click)="updateCourse(course.id, $event)">Update</button>
+                       
+                    <button mat-raised-button color="warn" class="delete-button"
+                        (click)="deleteCourse(course.id, $event)">Delete</button>
+                    }
+
+                    <button mat-raised-button color="primary" (click)="viewCourseDetails(course.id,$event)">Details</button>
+                </div>
+            </div>
+        </mat-card>
+        }
+    </div>
+</div>

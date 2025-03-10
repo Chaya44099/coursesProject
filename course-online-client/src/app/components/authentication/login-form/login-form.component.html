@@ -1,0 +1,39 @@
+<div class="register-page" dir="rtl">
+  <div class="branding">
+    <div class="logo">
+      <mat-icon>school</mat-icon>
+    </div>
+    <h1>CourseHub</h1>
+  </div>
+
+  <div class="register-container">
+    <h2>התחברות</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>אימייל</mat-label>
+        <input matInput formControlName="email" required>
+        @if (loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched) {
+          <mat-error>שדה האימייל הינו חובה</mat-error>
+        }
+        @if (loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched) {
+          <mat-error>אנא הזן כתובת אימייל תקינה</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>סיסמה</mat-label>
+        <input matInput type="password" formControlName="password" required>
+        @if (loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched) {
+          <mat-error>שדה הסיסמה הינו חובה</mat-error>
+        }
+        @if (loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched) {
+          <mat-error>הסיסמה חייבת להכיל לפחות 6 תווים</mat-error>
+        }
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" class="register-button" [disabled]="loginForm.invalid">
+        התחברות
+      </button>
+    </form>
+  </div>
+</div>

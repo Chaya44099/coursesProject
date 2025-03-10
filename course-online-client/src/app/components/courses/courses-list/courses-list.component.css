@@ -1,0 +1,140 @@
+/* סגנון לכל המכולה הראשית */
+.course-container {
+  max-width: 900px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+/* שורת כפתורים */
+.button-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* רשימת הקורסים */
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* כרטיס קורס */
+.course-card {
+  padding: 0;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: white;
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* תוכן כרטיס הקורס */
+.course-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+/* כותרת הקורס */
+.course-title {
+  font-weight: 500;
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+
+/* אזור כפתורי פעולות */
+.course-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* כפתור הצטרפות */
+.join-button {
+  background-color: #00e676 !important;
+  color: white !important;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* כפתור עזיבה */
+.leave-button {
+  background-color: #ff5252 !important;
+  color: white !important;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* כפתור עדכון */
+.update-button {
+  background-color: #00bcd4 !important;
+  color: white !important;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* כפתור מחיקה */
+.delete-button {
+  background-color: #ff5252 !important;
+  color: white !important;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* מכולת טעינה */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* וודא שיש נראות לטקסט */
+.course-title, .course-card-content {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+  position: relative;
+}
+
+/* הוסף מרווחים והדגשה */
+.course-list > * {
+  margin-bottom: 8px;
+}
+
+/* תצוגת רשימת שיעורים */
+.lesson-list {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.lesson-item {
+  padding: 8px 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* הטקסט העברי */
+[dir="rtl"] .course-title, 
+[dir="rtl"] .lesson-item {
+  text-align: right;
+}

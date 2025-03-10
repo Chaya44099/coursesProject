@@ -1,0 +1,22 @@
+<div class="lesson-form">
+    <h2>עדכון שיעור</h2>
+
+    <form (ngSubmit)="onSubmit()" #lessonForm="ngForm">
+        <div>
+            <label for="title">כותרת השיעור:</label>
+            <input type="text" id="title" name="title" [placeholder]="lesson.title" [(ngModel)]="lesson.title" required />
+        </div>
+
+        <div>
+            <label for="content">תוכן השיעור:</label>
+            <textarea id="content" name="content" [placeholder]="lesson.content" [(ngModel)]="lesson.content" required></textarea>
+        </div>
+
+        <div>
+            <label for="courseId">מזהה הקורס:</label>
+            <input type="text" id="courseId" name="courseId" [placeholder]="lesson.courseId" [(ngModel)]="lesson.courseId" required />
+        </div>
+
+        <button type="submit" [disabled]="!lessonForm.form.valid">שמור</button>
+    </form>
+</div>
