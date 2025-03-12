@@ -41,9 +41,4 @@ export class AuthenticationService {
     return { token, userId, role };
   }
 
-  logout(): void {
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('userId');
-    sessionStorage.removeItem('role');
-  }
 }

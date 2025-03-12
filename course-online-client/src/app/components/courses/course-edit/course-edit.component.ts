@@ -32,7 +32,6 @@ export class CourseEditComponent {
         this.loadCourse(courseId);
       }
     });
-    console.log(this.courseId);
   }
 
 

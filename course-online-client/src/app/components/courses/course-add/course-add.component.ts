@@ -13,12 +13,13 @@ export class CourseAddComponent {
   course = {
     title: '',
     description: '',
-    teacherId: null
+    teacherId: null as string | null
   };
 
   constructor(private courseService: CoursesService, private router: Router) {}
 
   onSubmit() {
+    this.course.teacherId = sessionStorage.getItem('userId');
     this.courseService.createCourse(this.course).subscribe(
       response => {
         console.log('Course created successfully:', response);

@@ -11,12 +11,7 @@
         <label for="content">תוכן השיעור:</label>
         <textarea id="content" name="content" [(ngModel)]="lesson.content" required></textarea>
       </div>
-  
-      <div>
-        <label for="courseId">מזהה הקורס:</label>
-        <input type="text" id="courseId" name="courseId" [(ngModel)]="lesson.courseId" required />
-      </div>
-  
+
       <button type="submit" [disabled]="!lessonForm.form.valid">שמור</button>
     </form>
 </div>
